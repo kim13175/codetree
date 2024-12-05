@@ -1,25 +1,24 @@
 function checkBasicOperation(numA, numC, op) {
     switch (op) {
         case '+':
-            return numA + numC;
+            console.log(`${numA} ${op} ${numC} = ${numA + numC}`);
+            break;
         case '-':
-            return numA - numC;
+            console.log(`${numA} ${op} ${numC} = ${numA - numC}`);
+            break;
         case '*':
-            return numA * numC;
+            console.log(`${numA} ${op} ${numC} = ${numA * numC}`);
+            break;
         case '/':
-            return parseInt(numA / numC);
+            console.log(`${numA} ${op} ${numC} = ${numA / numC}`);
+            break;
         default:
             return False;
     }
-}
-
-function printCalc(numA, numC, op, isBasicOp) {
-    if (isBasicOp === 'False') return False;
-    console.log(`${numA} ${op} ${numC} = ${checkBasicOperation(numA, numC, op)}`);
 }
 
 const fs = require('fs');
 let [numA, op, numC] = fs.readFileSync(0).toString().trim().split(" ")
 numA = parseInt(numA);
 numC = parseInt(numC);
-printCalc(numA, numC, op, checkBasicOperation(numA, numC, op));
+checkBasicOperation(numA, numC, op);
