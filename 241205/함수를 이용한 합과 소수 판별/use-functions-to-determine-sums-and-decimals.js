@@ -32,4 +32,4 @@ function checkNum(numA, numB) {
 
 const fs = require('fs');
 let [numA, numB] = fs.readFileSync(0).toString().trim().split(" ").map(Number);
-process.stdout.write(checkNum(numA, numB).toString() + '\n');
+process.stdout.write(checkNum(numA, numB).toString());
