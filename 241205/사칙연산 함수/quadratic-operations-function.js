@@ -9,12 +9,17 @@ function checkBasicOperation(numA, numC, op) {
         case '/':
             return parseInt(numA / numC);
         default:
-            return false;
+            return False;
     }
+}
+
+function printCalc(numA, numC, op, isBasicOp) {
+    if (isBasicOp === 'False') return False;
+    console.log(`${numA} ${op} ${numC} = ${checkBasicOperation(numA, numC, op)}`);
 }
 
 const fs = require('fs');
 let [numA, op, numC] = fs.readFileSync(0).toString().trim().split(" ")
 numA = parseInt(numA);
 numC = parseInt(numC);
-console.log(`${numA} ${op} ${numC} = ${checkBasicOperation(numA, numC, op)}`);
+printCalc(numA, numC, op, checkBasicOperation(numA, numC, op));
