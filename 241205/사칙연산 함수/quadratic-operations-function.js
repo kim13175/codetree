@@ -13,7 +13,7 @@ function checkBasicOperation(numA, numC, op) {
             console.log(`${numA} ${op} ${numC} = ${parseInt(numA / numC)}`);
             break;
         default:
-            return False;
+            return false;
     }
 }
 
