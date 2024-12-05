@@ -10,7 +10,7 @@ function checkBasicOperation(numA, numC, op) {
             console.log(`${numA} ${op} ${numC} = ${numA * numC}`);
             break;
         case '/':
-            console.log(`${numA} ${op} ${numC} = ${parseInt(numA / numC)}`);
+            console.log(`${numA} ${op} ${numC} = ${Number(numA / numC)}`);
             break;
         default:
             return False;
