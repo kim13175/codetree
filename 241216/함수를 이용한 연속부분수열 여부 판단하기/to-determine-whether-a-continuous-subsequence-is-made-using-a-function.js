@@ -16,7 +16,7 @@ function isSubSequence() {
 }
 
 function printAnswer() {
-    if (isSubSequence) {
+    if (isSubSequence()) {
         return "Yes";
     }
     else {
