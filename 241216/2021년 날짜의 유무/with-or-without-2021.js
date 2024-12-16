@@ -21,8 +21,10 @@ function checkMonthPerDate() {
 }
 
 function leapYear() {
-    if (month === 2) return true;
-    return false;
+    if (month === 2) {
+        if (day > 28) return false
+    };
+    return true;
 }
 
 function validMonth() {
