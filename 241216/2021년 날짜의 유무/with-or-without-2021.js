@@ -1,5 +1,6 @@
 function checkValidDate() {
-    if (leapYear() && checkMonthPerDate() && validMonth()) return "Yes" 
+    if (month === 2 && leapYear()) return "Yes" 
+    if (month !== 2 && checkMonthPerDate() && validMonth()) return "Yes"; 
     return "No";
 }
 
