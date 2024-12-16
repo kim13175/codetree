@@ -1,6 +1,6 @@
-function isSameNumber(n) {
+function isSameNumber(index) {
     for (let i = 0; i < len_B; i++) {
-        if (numArr_A[i+n] !== numArr_B[i]) return false;
+        if (numArr_A[i+index] !== numArr_B[i]) return false;
     }
     return true;
 }
@@ -12,6 +12,7 @@ function isSubSequence() {
             return true;
         }
     }
+    return false;
 }
 
 function printAnswer() {
