@@ -1,9 +1,10 @@
 function checkValidDate() {
-    if (checkMonthPerDate() || leapYear() || validMonth()) return "Yes"; 
+    if (checkMonthPerDate() && validMonth()) return "Yes"; 
     return "No";
 }
 
 function checkMonthPerDate() {
+    if (leapYear()) return true;
     if (month >= 8) {
         if (month % 2 === 0) {
             if (day > 31) return false;
@@ -14,8 +15,9 @@ function checkMonthPerDate() {
         if (month % 2 === 0) {
             if (day > 30) return false;
         }
-        if (day > 31) return true;
+        if (day > 31) return false;
     }
+    return true;
 }
 
 function leapYear() {
