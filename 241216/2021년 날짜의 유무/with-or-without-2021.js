@@ -1,11 +1,11 @@
 function checkValidDate() {
-    if (month === 2 && leapYear()) return "Yes" 
+    if (month === 2 && leapMonth()) return "Yes"; 
     if (month !== 2 && checkMonthPerDate() && validMonth()) return "Yes"; 
     return "No";
 }
 
 // 윤년
-function leapYear() {
+function leapMonth() {
     if (day > 28) return false;
     return true;
 }
@@ -14,16 +14,19 @@ function checkMonthPerDate() {
     if (month >= 8) {
         if (month % 2 === 0) {
             if (day <= 31) return true;
+            return false;
         }
         if (day <= 30) return true;
+        return false;
     }
-    if (month < 8 && month !== 2) {
+    if (month < 8) {
         if (month % 2 === 0) {
             if (day <= 30) return true;
+            return false;
         }
         if (day <= 31) return true;
+        return false;
     }
-    return false;
 }
 
 // 유효한 개월 수
