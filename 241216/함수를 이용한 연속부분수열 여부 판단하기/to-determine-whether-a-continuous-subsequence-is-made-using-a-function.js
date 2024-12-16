@@ -26,6 +26,6 @@ const fs = require('fs');
 const input = fs.readFileSync(0).toString().trim().split("\n");
 
 let [len_A, len_B] = input[0].split(" ");
-let numArr_A = input[1];
-let numArr_B = input[2];
+let numArr_A = input[1].split(" ").map(Number);
+let numArr_B = input[2].split(" ").map(Number);
 console.log(printAnswer());   
