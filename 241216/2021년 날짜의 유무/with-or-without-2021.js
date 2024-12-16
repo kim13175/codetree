@@ -8,6 +8,7 @@ function checkValidDate(month, day) {
     if (month % 2 === 0) {
         if (day > 30) return "No"
     }
+    if (month > 12) return "No";
     return "Yes"
 }
 
