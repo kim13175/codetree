@@ -19,4 +19,4 @@ let [len_A, len_B] = input[0].split(" ");
 let numArr_A = input[1];
 let numArr_B = input[2];
 
-console.log(checkInPartialSame(numArr_A, numArr_B));   
+console.log(checkInPartialSame(numArr_A, numArr_B, len_A, len_B));   
