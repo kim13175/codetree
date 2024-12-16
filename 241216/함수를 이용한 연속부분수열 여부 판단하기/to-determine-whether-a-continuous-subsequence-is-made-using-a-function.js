@@ -1,8 +1,15 @@
-function checkInPartialSame(a, b) {
-    if (a.includes(b)) {
-        return "Yes";
+function checkInPartialSame(a, b, len_A, len_B) {
+    for (let i = 0; i < len_A; i++) {
+        if (a[i] === b[0]) {
+            for (let j = 0; j < len_B; j++) {
+                if (a[i+j] === b[j]) {
+                    continue;
+                }
+                return "No";
+            }
+        }
     }
-    return "No"; 
+    return "Yes";
 }
 
 const fs = require('fs');
