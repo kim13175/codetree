@@ -2,6 +2,7 @@ function isSameNumber(n) {
     for (let i = 0; i < len_B; i++) {
         if (numArr_A[i+n] !== numArr_B[i]) return false;
     }
+    return true;
 }
 
 function isSubSequence() {
