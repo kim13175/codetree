@@ -13,7 +13,7 @@ function checkValidDate(month, day) {
 }
 
 const fs = require("fs");
-const input = fs.readFileSync(0).toString().trim().split(" ")
+const input = fs.readFileSync(0).toString().trim().split(" ").map(Number)
 
 const month = input[0];
 const day = input[1];
