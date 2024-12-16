@@ -19,13 +19,15 @@ function printAnswer() {
     if (isSubSequence) {
         return "Yes";
     }
-    return "No";
+    else {
+        return "No";
+    }
 }
 
 const fs = require('fs');
 const input = fs.readFileSync(0).toString().trim().split("\n");
 
-let [len_A, len_B] = input[0].split(" ");
+let [len_A, len_B] = input[0].split(" ").map(Number);
 let numArr_A = input[1].split(" ").map(Number);
 let numArr_B = input[2].split(" ").map(Number);
 console.log(printAnswer());   
