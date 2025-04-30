@@ -3,17 +3,19 @@ const input = fs.readFileSync(0).toString().trim().split('\n');
 const n = Number(input[0]);
 
 // Please Write your code here.
-const printSequenceNum = (num) => {
-    process.stdout.write(`${num}`);
-    if (n === 0) return;
-    printSequenceNum(num - 1);
-}
+const printSeqNum = (num) => {
+    if (num === 0) return;
+    printSeqNum(num - 1);
+    process.stdout.write(`${num} `);
+};
 
-const printReverseNum = (num) => {
-    process.stdout.write(`${num}`);
-    if (n === num) return;
-    printReverseNum(num + 1);
-}
+const printRevNum = (num) => {
+    if (num === 0) return;
+    process.stdout.write(`${num} `);
+    printRevNum(num - 1);
+};
 
-printSequenceNum(n);
-printReverseNum(n);
+printSeqNum(n);
+process.stdout.write('\n');
+printRevNum(n);
+process.stdout.write('\n');
