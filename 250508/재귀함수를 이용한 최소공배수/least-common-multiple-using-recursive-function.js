@@ -2,17 +2,22 @@ const fs = require("fs");
 const input = fs.readFileSync(0).toString().trim().split('\n');
 const n = Number(input[0]);
 const numbers = input[1].split(" ").map(Number);
-let num = 1;
+
 // Please Write your code here.
-const checkLcm = (index) => {
-    if (index === -1) return num;
-    for (let i = 1; i < numbers[index]; i++) {
-        if (numbers[index] % i === 0) {
-            num *= i;
-        }
-    }
-    if (num % numbers[index] !== 0) num *= numbers[index]; 
-    return checkLcm(index - 1);             
+/* 최대 공약수를 구하는 유클리드 알고리즘 */
+const gcd = (a, b) => {
+    if (b === 0) return a;
+    return gcd(b, a % b);
 }
-const index = n - 1;
-console.log(checkLcm(index));
+
+/* 최소 공배수 구하는 알고리즘 */
+const lcm = (a, b) => {
+    return (a * b) / gcd(a, b);
+}
+
+const recurLcm = (arr, index = 0) => {
+    if (index === arr.length - 1) return arr[index];
+    return lcm(arr[index], recurLcm(arr, index + 1));
+}
+
+console.log(recurLcm(numbers));
