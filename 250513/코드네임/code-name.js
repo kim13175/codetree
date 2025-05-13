@@ -18,11 +18,11 @@ class matrix {
     }
 }
 
-let matrix0 = new matrix(code0, s0);
-let matrix1 = new matrix(code1, s1);
-let matrix2 = new matrix(code2, s2);
-let matrix3 = new matrix(code3, s3);
-let matrix4 = new matrix(code4, s4);
+let matrix0 = new matrix(code0, score0);
+let matrix1 = new matrix(code1, score1);
+let matrix2 = new matrix(code2, score2);
+let matrix3 = new matrix(code3, score3);
+let matrix4 = new matrix(code4, score4);
 
 let matrixArr = [
     matrix0,
