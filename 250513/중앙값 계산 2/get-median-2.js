@@ -17,7 +17,7 @@ const calcMiddle = (arr, length) => {
        (유니코드 방식의 정렬 방지하기 위해 메서드내 파라미터를 넣어줌) 
     */
     let sortingArr = arr.slice(0, length).sort((prev, cur) => { return prev - cur; });
-    mid = parseInt(length / 2);
+    const mid = parseInt(length / 2);
     return sortingArr[mid];
 }
 
