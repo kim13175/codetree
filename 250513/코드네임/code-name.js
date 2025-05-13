@@ -10,6 +10,7 @@ const [code3, s3] = input[3].split(' ');
 const score3 = Number(s3);
 const [code4, s4] = input[4].split(' ');
 const score4 = Number(s4);
+
 // Please Write your code here.
 class matrix {
     constructor(code, score) {
@@ -30,8 +31,22 @@ let matrixArr = [
     matrix2,
     matrix3,
     matrix4
-].sort((prev, cur) => {
-    return prev - cur;
-});
+]
 
-console.log(matrixArr[0].code, matrixArr[0].score);
+const minScoreCode = (arr) => {
+    let code = '';
+    let tempScore = 101;
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].score < tempScore) {
+            tempScore = arr[i].score;
+            code = arr[i].code;
+        }
+    }
+
+    return [code, tempScore];
+}
+
+const [minCode, minScore] = minScoreCode(matrixArr);
+
+console.log(minCode, minScore);
