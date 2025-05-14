@@ -27,7 +27,7 @@ const inputInfo = (arr) => {
     return informations;
 }
 
-const info = inputInfo(personLines).sort;
+const info = inputInfo(personLines).sort();
 
 const [name, addr, country] = info[info.length - 1];
 
