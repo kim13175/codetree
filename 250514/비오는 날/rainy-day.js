@@ -23,7 +23,9 @@ const makeDayInstances = (arr) => {
         const [date, day, weather] = arr[i];
         days.push(new rainyDay(date, day, weather));
     }
-    return days.sort();
+    return days.sort((prev, cur) => {
+        return prev.date.localeCompare(cur.date);
+    });
 }
 
 const pickRain = (instance) => {
