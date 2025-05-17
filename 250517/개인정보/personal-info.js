@@ -32,18 +32,14 @@ const makeInfoClass = (arr) => {
 
 const sortName = (arr) => {
   return [...arr].sort((prev, cur) => {
-    if (prev.name > cur.name) return 1;
-    if (prev.name < cur.name) return -1;
-    return 0;
+    return prev.name.localeCompare(cur.name);
   })
 }
 
 const sortHeight = (arr) => {
   return [...arr].sort((prev, cur) => {
     if (cur.height === prev.height) {
-      if (prev.name > cur.name) return 1;
-      if (prev.name < cur.name) return -1;
-      return 0;
+      return prev.name.localeCompare(cur.name);
     }
     return cur.height - prev.height;
   })
