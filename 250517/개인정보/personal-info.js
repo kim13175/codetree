@@ -39,6 +39,7 @@ const sortName = (arr) => {
 
 const sortHeight = (arr) => {
   return [...arr].sort((prev, cur) => {
+    if (cur.height === prev.height) return prev.name.localeCompare(cur.name);
     return cur.height - prev.height;
   })
 }
