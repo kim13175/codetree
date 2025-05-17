@@ -25,7 +25,7 @@ class PersonInfo {
 const makeInfoClass = (arr) => {
   let infoClass = [];
   for (let i = 0; i < arr.length; i++) {
-    infoClass.push(new PersonInfo(arr[i].name, arr[i].height, arr[i].weight));
+    infoClass.push(new PersonInfo(arr[i].name, Number(arr[i].height), Number(arr[i].weight).toFixed(1)));
   }
   return infoClass;
 }
