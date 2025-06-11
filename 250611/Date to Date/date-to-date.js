@@ -32,7 +32,7 @@ const monthDate = (month) => {
 }
 
 const calcDate = (start, end) => {
-    let countDate = 0;
+    let countDate = 1;
 
     while(true) {
         if (start.month === end.month && start.date === end.date) {
@@ -45,7 +45,6 @@ const calcDate = (start, end) => {
         if (start.date > monthDate(start.month)) {
             start.month += 1;
             start.date = 1;
-            countDate += 1;
         }
     }
 
