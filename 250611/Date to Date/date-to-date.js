@@ -14,20 +14,19 @@ class Date {
 const start = new Date(m1, d1);
 const end = new Date(m2, d2);
 
-
 const monthDate = (month) => {
     if (month < 8) {
-        if (month % 2 !== 0) {
+        if (month % 2 === 0) {
             if (month === 2) return 28;
             return 30;
         } else {
             return 31;
         }
     } else {
-        if (month % 2 !== 0) {
-            return 30;
-        } else {
+        if (month % 2 === 0) {
             return 31;
+        } else {
+            return 30;
         }
     }
 }
@@ -39,14 +38,14 @@ const calcDate = (start, end) => {
         if (start.month === end.month && start.date === end.date) {
             break;
         }
+        countDate += 1;
+        start.date += 1;
+        
         /* 달이 바뀔 경우 */
         if (start.date > monthDate(start.month)) {
             start.month += 1;
             start.date = 1;
             countDate += 1;
-        } else {
-            countDate += 1;
-            start.date += 1;
         }
     }
 
