@@ -4,11 +4,19 @@ const input = fs.readFileSync(0).toString().trim().split('\n');
 const [A, B, C] = input[0].split(' ').map(Number);
 
 // Please write your code here.
+const prevTime = (hour, min) => {
+    if (hour < 11) return -1;
+    if (hour === 11 && min < 11) return -1;
+    return;
+}
+
+
 const calcMinutes = (day, hour, min) => {
     const differDay = day - 11;
     const differHour = (hour > 11) ? hour - 11 : hour - 11 + 24;
     const differMin = (min > 11) ? min - 11 : min - 11 + 60;
 
+    if (day === 11) prevTime(hour, min);
     if (hour < 11) differDay -= 1;
     if (min < 11) differHour -= 1;
 
