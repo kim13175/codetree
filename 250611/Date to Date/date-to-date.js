@@ -39,12 +39,14 @@ const calcDate = (start, end) => {
         if (start.month === end.month && start.date === end.date) {
             break;
         }
-        countDate += 1;
-        start.date += 1;
+        /* 달이 바뀔 경우 */
         if (start.date > monthDate(start.month)) {
             start.month += 1;
             start.date = 1;
-            countDate += 1; 
+            countDate += 1;
+        } else {
+            countDate += 1;
+            start.date += 1;
         }
     }
 
