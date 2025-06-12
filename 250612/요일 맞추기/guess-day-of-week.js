@@ -16,7 +16,7 @@ const endDay = new Date(m2, d2);
 const monthLastDay = (month) => {
     if (month < 8) {
         if (month % 2 === 0) {
-            if (month === 2) return 28
+            if (month === 2) return 28;
             else return 30;
         } 
         else return 31; 
@@ -28,7 +28,7 @@ const monthLastDay = (month) => {
 
 const calcTotalDay = (month, date) => {
     let monthDate = 0;
-    for (let i = 1; i <= month; i++) {
+    for (let i = 1; i < month; i++) {
         monthDate += monthLastDay(i);
     };
     monthDate += date;
@@ -36,9 +36,10 @@ const calcTotalDay = (month, date) => {
 }
 
 const dateToDay = (totalDate) => {
-    const week = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const week = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
     const remainDay = parseInt(totalDate % 7, 10);
-    return week[1 + remainDay]; 
+    if (remainDay < 0) return week[(remainDay + 7) % 7];
+    else return week[remainDay];
 }
 
 const timeToDate = calcTotalDay(endDay.month, endDay.date) - calcTotalDay(startDay.month, startDay.date);
