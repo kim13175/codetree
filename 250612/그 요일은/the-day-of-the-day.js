@@ -26,7 +26,7 @@ const calcLastDay = (month) => {
 }
 
 const calcDifferDay = (start, end) => {
-    let day = 0;
+    let day = 1;
     if (start.month === end.month) return (end.date - start.date);
     for (let i = start.month; i < end.month; i++) {
         if (i === start.month) day += calcLastDay(i) - start.date;
@@ -47,4 +47,5 @@ const calcDayTime = (totalDate, day) => {
 
 const startDay = new Date(m1, d1);
 const endDay = new Date(m2, d2);
+console.log(endDay.month);
 console.log(calcDayTime(calcDifferDay(startDay, endDay), A));
