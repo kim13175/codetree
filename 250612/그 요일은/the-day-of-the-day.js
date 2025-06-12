@@ -27,6 +27,7 @@ const calcLastDay = (month) => {
 
 const calcDifferDay = (start, end) => {
     let day = 0;
+    if (start.month === end.month) return (end.date - start.date);
     for (let i = start.month; i < end.month; i++) {
         if (i === start.month) day += calcLastDay(i) - start.date;
         else day += calcDifferDay(i);
@@ -38,7 +39,7 @@ const calcDifferDay = (start, end) => {
 const calcDayTime = (totalDate, day) => {
     let cnt = 0;
     const week = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-    for (let i = 1; i <= totalDate; i++) {
+    for (let i = 0; i <= totalDate; i++) {
         if (week[i % 7] === day) cnt += 1;
     }
     return cnt;
