@@ -35,10 +35,15 @@ const calcDifferDay = (start, end) => {
     return day;
 }
 
-const calcDayTime = (totalDate) => {
-    return Math.round(totalDate / 7, 0);
+const calcDayTime = (totalDate, day) => {
+    let cnt = 0;
+    const week = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    for (let i = 1; i <= totalDate; i++) {
+        if (week[i % 7] === day) cnt += 1;
+    }
+    return cnt;
 }
 
 const startDay = new Date(m1, d1);
 const endDay = new Date(m2, d2);
-console.log(calcDayTime(calcDifferDay(startDay, endDay)));
+console.log(calcDayTime(calcDifferDay(startDay, endDay), A));
