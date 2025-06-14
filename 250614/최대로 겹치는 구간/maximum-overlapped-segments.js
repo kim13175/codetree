@@ -19,7 +19,7 @@ const overlapLine = (segments) => {
     for (let i = 0; i < segments.length; i++) {
         const [x1, x2] = segments[i];
         const startIndex = x1 - minLoc;
-        const endIndex = x2 - minLoc;
+        const endIndex = x2 - minLoc - 1;
         for (let j = startIndex; j <= endIndex; j++) line[j] += 1;
     }
     return line;
