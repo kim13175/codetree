@@ -17,12 +17,10 @@ const overlapLine = (segments) => {
     const lineLength = maxLoc - minLoc + 1
     const line = new Array(lineLength).fill(0).map(Number);
     for (let i = 0; i < segments.length; i++) {
-        let startLine = Math.abs(segments[i][0]);
-        if (minLoc < 0) {
-            for (let j = startLine; j <= startLine + segments[i][1]; j++) line[j - 1] += 1;
-        } else {
-            for (let j = startLine; j <= segments[i][1]; j++) line[j - 1] += 1;
-        }
+        const [x1, x2] = segments[i];
+        const startIndex = x1 - minLoc;
+        const endIndex = x2 - minLoc;
+        for (let j = startIndex; j <= endIndex; j++) line[j] += 1;
     }
     return line;
 }
