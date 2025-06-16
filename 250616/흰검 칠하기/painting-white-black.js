@@ -7,10 +7,10 @@ const offset = 100000;
 let report = new Array(2 * offset + 1).fill(0).map(Number);
 let reportBlack = new Array(2 * offset + 1).fill(0).map(Number);
 let reportWhite = new Array(2 * offset + 1).fill(0).map(Number);
+let current = offset;
 
 // Please Write your code here.
 const commandMove = (command, move) => {
-    let current = offset;
 
     if (command === 'L') {
         while (move > 0) {
@@ -26,7 +26,7 @@ const commandMove = (command, move) => {
             reportBlack[current] += 1;
             move -= 1;
 
-            if (x) current += 1;
+            if (move) current += 1;
         }
     }
 }
