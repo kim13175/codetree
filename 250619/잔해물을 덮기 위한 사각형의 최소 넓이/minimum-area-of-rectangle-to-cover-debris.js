@@ -39,14 +39,24 @@ const removeRect = (rect) => {
 }
 
 const checkGround = (ground) => {
-    let cnt = 0;
+    let remainGlass = false;
+    let min_x = mapLength, max_x = 0, min_y = mapLength, max_y = 0;
     for (let i = 0; i < mapLength; i++) {
         for (let j = 0; j < mapLength; j++) {
-            if (ground[i][j] === 1) cnt += 1; 
+            if (ground[i][j] === 1) {
+                remainGlass = true;
+                min_x = Math.min(min_x, i);
+                max_x = Math.max(max_x, i);
+                min_y = Math.min(min_y, j);
+                max_y = Math.max(max_y, j);
+            } 
         }
     }
-    return cnt;
+
+    return [((max_x - min_x + 1) * (max_y - min_y + 1)), remainGlass];
 }
 
 fillRect(rect1);
-console.log(checkGround(ground));
+removeRect(rect2);
+const [rectArea, remaining] = checkGround(ground)
+console.log(remaining ? rectArea : 0);
