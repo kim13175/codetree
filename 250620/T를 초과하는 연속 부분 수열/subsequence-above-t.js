@@ -6,16 +6,22 @@ const arr = input[1].split(' ').map(Number);
 
 // Please Write your code here.
 const specialNumArray = (arr, t) => {
-    let cnt = 1;
+    let cnt = 0;
     let max_cnt = 0;
     for (let i = 1; i < arr.length; i++) {
-        if (arr[i - 1] > t && arr[i] > t && arr[i] > arr[i - 1]) { 
-            cnt += 1; 
+        if (arr[i] > t) {
+            if (arr[i - 1] < arr[i] || cnt === 0) cnt += 1;
+            else {
+                max_cnt = Math.max(cnt, max_cnt);
+                cnt = 1;
+            }
         } else {
             max_cnt = Math.max(cnt, max_cnt);
-            cnt = 1;
+            cnt = 0;
         }
     }
+    max_cnt = Math.max(cnt, max_cnt);
+
     return max_cnt;
 }
 
