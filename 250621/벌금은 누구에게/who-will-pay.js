@@ -14,7 +14,7 @@ const checkDemerit = (m) => {
 
 const choseStudent = (arr, k) => {
     let choosen = -1;
-    for (let i = 0; i < arr.length; i++) {
+    for (let i = 1; i < arr.length; i++) {
         if (arr[i] >= k) return i; 
     }
     return choosen;
