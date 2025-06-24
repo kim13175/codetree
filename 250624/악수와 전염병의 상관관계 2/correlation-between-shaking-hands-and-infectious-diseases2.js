@@ -20,16 +20,17 @@ const infection = (shakes) => {
     for (let i = 0; i < shakes.length; i++) {
         const x = shakes[i].person1 - 1;
         const y = shakes[i].person2 - 1;
-        if (person[x] === 1 && infectionList[x] > 0) {
+        /* 둘 다 감염 된 경우를 먼저 처리 해줘야 함 */
+        if (person[y] === 1 && person[x] === 1) {
+            infectionList[x] -= 1;
+            infectionList[y] -= 1;
+        } else if (person[x] === 1 && infectionList[x] > 0) {
             person[y] = 1;
             infectionList[x] -= 1;
         } else if (person[y] === 1 && infectionList[y] > 0) {
             person[x] = 1;
             infectionList[y] -= 1;
-        } else if (person[y] === 1 && person[x] === 1) {
-            infectionList[x] -= 1;
-            infectionList[y] -= 1
-        }
+        } 
     } 
 }
 
