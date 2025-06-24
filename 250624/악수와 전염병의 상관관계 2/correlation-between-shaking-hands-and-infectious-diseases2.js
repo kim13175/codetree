@@ -26,7 +26,10 @@ const infection = (shakes) => {
         } else if (person[y] === 1 && infectionList[y] > 0) {
             person[x] = 1;
             infectionList[y] -= 1;
-        } 
+        } else if (person[y] === 1 && person[x] === 1) {
+            infectionList[x] -= 1;
+            infectionList[y] -= 1
+        }
     } 
 }
 
