@@ -12,17 +12,10 @@ def solve(t):
         moveBelt()
         t -= 1
 
-    for i in range(n):
-        newStr += str(l[i]) + ' '
-    newStr += '\n'
-
-    for i in range(n):
-        newStr += str(r[i]) + ' '
-    newStr += '\n' 
-
-    for i in range(n):
-        newStr += str(d[i]) + ' '
-
+    newStr += ' '.join(map(str, l)) + '\n'
+    newStr += ' '.join(map(str, r)) + '\n'
+    newStr += ' '.join(map(str, d)) + '\n'
+    
     return newStr
 
 def moveBelt():
