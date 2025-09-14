@@ -44,9 +44,8 @@ def change_number():
                                         max_value = grid[nx][ny]
                                         temp_x, temp_y = nx, ny
                             
-                            if temp_x != -1:
-                                grid[x][y] = max_value
-                                grid[temp_x][temp_y] = num                                
+                            grid[x][y] = max_value
+                            grid[temp_x][temp_y] = num                                
                             found = True
                             break
                 if found:
