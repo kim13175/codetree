@@ -51,9 +51,7 @@ def find_max_area(cnt):
 def solve():
     for i in range(n):
         grid = list(map(int, input().split()))
-        print(grid)
         for j, bomb_place in enumerate(grid):
-            print(list(map(str, part))) 
             if bomb_place:
                 bomb_position.append((i, j))
     find_max_area(0)
