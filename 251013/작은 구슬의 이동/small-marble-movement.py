@@ -3,25 +3,25 @@ def in_range(x, y, n):
     return x < 1 or x > n or y < 1 or y > n
 
 def move(r, c, d):
-    func = {
-        'R': lambda x, y: (x, y + 1), 
-        'L': lambda x, y: (x, y - 1),
-        'U': lambda x, y: (x - 1, y),
-        'D': lambda x, y: (x + 1, y)
-    }.get(d)
+    loc = {}
+    loc['R'] = (0, 1)
+    loc['L'] = (0, -1)
+    loc['U'] = (-1, 0)
+    loc['D'] = (1, 0)
 
-    return func(r, c) if func else None
+    dr, dc = loc[d]
+
+    return r + dr, c + dc
 
 def bounce(d):
-    new_d = d
-    func = {
-        'R': lambda d: 'L', 
-        'L': lambda d: 'R',
-        'U': lambda d: 'D',
-        'D': lambda d: 'U'
-    }.get(d)
-    
-    return func(new_d) if func else None 
+
+    reverse_direction = {
+        'R': 'L', 
+        'L': 'R',
+        'U': 'D',
+        'D': 'U'
+    }
+    return reverse_direction[d]
 
 def solution():
     n, t = map(int, input().split())
